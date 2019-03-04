@@ -1,44 +1,3 @@
-def GenBoard(board):
-    # Create a dictionary for all players i.e. {"Black Knight: 21"}
-
-    # Get position of white players
-    empty_board = [0] * 64
-    display_board = []
-    for i in range(0, 64):
-        if i % 2 == 0:
-            display_board += ['#']
-        else:
-            display_board += ['_']
-
-    white_player = GetPlayerPositions(board, 10)  # List of all white player positions
-    black_player = GetPlayerPositions(board, 20)  # List of all black player positions
-
-    for i in white_player:
-        empty_board[i] = board[i]
-        display_board[i] = board[i]
-    for i in black_player:
-        empty_board[i] = board[i]
-        display_board[i] = board[i]
-
-    row_0 = display_board[:7]
-    row_1 = display_board[8:15]
-    row_2 = display_board[16:23]
-    row_3 = display_board[24:31]
-    row_4 = display_board[32:39]
-    row_5 = display_board[40:47]
-    row_6 = display_board[48:55]
-    row_7 = display_board[56:63]
-
-    print(row_0)
-    print(row_1)
-    print(row_2)
-    print(row_3)
-    print(row_4)
-    print(row_5)
-    print(row_6)
-    print(row_7)
-
-
 def GetPlayerPositions(board, player):
     pos = []
     white_pos = [10, 11, 12, 13, 14, 15]
@@ -50,7 +9,6 @@ def GetPlayerPositions(board, player):
             pos += [i]
     return pos
 
-
 def isEnemy(piece, move):
     white = [10, 11, 12, 13, 14, 15]
     black = [20, 21, 22, 23, 24, 25]
@@ -60,7 +18,6 @@ def isEnemy(piece, move):
         return True
     else:
         return False
-
 
 def IsValidSpot(piece, move):  # piece, move: integer values of the piece. move = board[new_position]
     white = [10, 11, 12, 13, 14, 15]
@@ -72,12 +29,7 @@ def IsValidSpot(piece, move):  # piece, move: integer values of the piece. move 
     else:
         return False
 
-
 def GetPieceLegalMoves(board, position):
-    # Create a dictionary of all pieces and its according value
-    # Check position number against dictionary to determine what piece it is
-    # Get Legal moves
-    # Assume that white at the bottom
     white = [10, 11, 12, 13, 14, 15]
     black = [20, 21, 22, 23, 24, 25]
     pawns = [10, 20]
